@@ -84,16 +84,14 @@ architecture top_basys3_arch of top_basys3 is
     
 begin
 	-- PORT MAPS --------------------
-   halfAdder1_inst: halfAdder
-   port map(
+   halfAdder1_inst: halfAdder port map(
        i_A      => sw(0),
        i_B      => sw(1),
        o_S      => w_S1,
        o_Cout   => w_Cout1
     );
     
-    halfAdder2_inst: halfAdder
-    port map(
+    halfAdder2_inst: halfAdder port map(
        i_A      => w_S1,
        i_B      => sw(2),
        o_S      => led(0),
@@ -102,7 +100,7 @@ begin
 	---------------------------------
 	
 	-- CONCURRENT STATEMENTS --------
-	led(1) <= w_Cout2 or w_Cout1
+	led(1) <= w_Cout2 or w_Cout1;
 	
 	---------------------------------
 end top_basys3_arch;

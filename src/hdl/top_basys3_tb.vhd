@@ -11,8 +11,8 @@
 --| ---------------------------------------------------------------------------
 --|
 --| FILENAME      : top_basys3_tb.vhd
---| AUTHOR(S)     : Capt Johnson
---| CREATED       : 01/30/2019 Last Modified 06/24/2020
+--| AUTHOR(S)     : Brandon Son
+--| CREATED       : 02/09/2024
 --| DESCRIPTION   : This file implements a test bench for the full adder top level design.
 --|
 --| DOCUMENTATION : None
@@ -59,13 +59,21 @@ architecture test_bench of top_basys3_tb is
   -- declare the component of your top-level design unit under test (UUT)
   component top_basys3 is
       port(
-          -- TODO
+          -- TODO,
+          sw : in  std_logic; 
+          sw1 : in  std_logic; 
+          sw2 : in std_logic;
+          o_S : out std_logic;
+          o_Cout : out std_logic;
+          led : out std_logic
       );
-  end component;
-  
+  end component top_basys3;
  
 	-- declare signals needed to stimulate the UUT inputs
 	   -- TODO
+       signal w_sw, w_Cout1 : std_logic := '0';
+       signal w_led, w_Cout2 : std_logic := '0';
+       
 	-- finish declaring needed signals
 begin
 	-- PORT MAPS ----------------------------------------
@@ -74,20 +82,28 @@ begin
 	-----------------------------------------------------
 	top_basys3_inst : top_basys3 port map (
 	   sw => w_sw,
-	   led => w_led
+	   led => w_led,
+	   sw1 => w_Cout1,
+	   sw2 => w_Cout2
 	);
+	
 	-- PROCESSES ----------------------------------------	
 	-- Test Plan Process
 	-- Implement the test plan here.  Body of process is continuously from time = 0  
 	test_process : process 
 	begin
 	
-	    w_sw <= o"0"; wait for 10 ns;
-		assert w_led = "00" report "bad o0" severity failure;
-            w_sw <= o"1"; wait for 10 ns;
-            	assert w_led = "01" report "bad o1" severity failure;
+	    --w_sw <= o"0"; wait for 10 ns;
+	    w_sw <= '0'; w_sw <= '0'; wait for 10 ns;
+		  assert w_led = "00" report "bad o0" severity failure;
+        w_sw <= '0'; w_sw <= '1'; wait for 10 ns;
+          assert w_led = "01" report "bad o1" severity failure;
 	    --You must fill in the remaining test cases.	
-	
+	    w_sw <= '1'; w_sw <= '0'; wait for 10 ns;
+          assert w_led = "10" report "bad 1o" severity failure;
+        w_sw <= '1'; w_sw <= '1'; wait for 10 ns;
+          assert w_led = "11" report "bad 11" severity failure;
+        
 		wait; -- wait forever
 	end process;	
 	-----------------------------------------------------	
