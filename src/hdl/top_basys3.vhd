@@ -12,7 +12,7 @@
 --|
 --| FILENAME      : top_basys3.vhd
 --| AUTHOR(S)     : Brandon Son
---| CREATED       : 01/30/2019 Last Modified 06/24/2020
+--| CREATED       : 02/09/2024
 --| DESCRIPTION   : This file implements the top level module for a BASYS 3 to create a full adder
 --|                 from two half adders.
 --|
@@ -20,7 +20,7 @@
 --|							 
 --|					Outputs: led (1:0)   --> sum output and carry out.
 --|
---| DOCUMENTATION : None
+--| DOCUMENTATION : No outside resources were used on this assignment.
 --|
 --+----------------------------------------------------------------------------
 --|
