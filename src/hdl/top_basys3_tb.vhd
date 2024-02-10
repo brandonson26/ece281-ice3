@@ -15,7 +15,7 @@
 --| CREATED       : 02/09/2024
 --| DESCRIPTION   : This file implements a test bench for the full adder top level design.
 --|
---| DOCUMENTATION : None
+--| DOCUMENTATION : No outside resources were used on this assignment.
 --|
 --+----------------------------------------------------------------------------
 --|
