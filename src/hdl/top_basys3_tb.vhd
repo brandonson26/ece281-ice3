@@ -97,7 +97,7 @@ begin
         w_led <= o"1"; wait for 10 ns;
             assert w_led = "01" report "bad o1" severity failure;
         wait; -- wait forever
-    end process;    
+    end process;
 	-----------------------------------------------------	
 	
 end test_bench;
